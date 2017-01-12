@@ -1,51 +1,46 @@
-Data Dictionary:
+DDataset Information
 
-Title: Credit data
-Source: Credit One Bank
-Number of Instances: 5000
-Name of Dataset: Analysis_of_Default
-Number of Attributes: 20 (7 numerical, 13 categorical)
-Attribute description
-Attribute 1: (Qualitative / Categorical) Status of existing checking account A11: ... < 0 USD A12: 0 <= ... < 10000 USD A13: ... >= 10000 USD A14: no checking account
+This dataset contains information on default payments, demographic factors, credit data, history of payment, and bill statements of credit card clients in Taiwan from April 2005 to September 2005.
 
-Attribute 2: (numerical) Duration in month
+Content
 
-Attribute 3: (Qualitative / Categorical) Credit history A30: no credits taken/all credits paid back duly A31: all credits at this bank paid back duly A32: existing credits paid back duly till now A33: delay in paying off in the past A34:critical account/other credits existing(not at this bank)
+There are 25 variables:
 
-Attribute 4: (Qualitative / Categorical) Purpose A40: car (new) A41: car (used) A42: furniture/equipment A43: radio/television A44: domestic appliances A45: repairs A46: education A47: (vacation - does not exist?) A48: retraining A49: business A410: others
+ID: ID of each client
+LIMIT_BAL: Amount of given credit in NT dollars (includes individual and family/supplementary credit
+SEX: Gender (1=male, 2=female)
+EDUCATION: (1=graduate school, 2=university, 3=high school, 4=others, 5=unknown, 6=unknown)
+MARRIAGE: Marital status (1=married, 2=single, 3=others)
+AGE: Age in years
+PAY_0: Repayment status in September, 2005 (-1=pay duly, 1=payment delay for one month, 2=payment delay for two months, ... 8=payment delay for eight months, 9=payment delay for nine months and above)
+PAY_2: Repayment status in August, 2005 (scale same as above)
+PAY_3: Repayment status in July, 2005 (scale same as above)
+PAY_4: Repayment status in June, 2005 (scale same as above)
+PAY_5: Repayment status in May, 2005 (scale same as above)
+PAY_6: Repayment status in April, 2005 (scale same as above)
+BILL_AMT1: Amount of bill statement in September, 2005 (NT dollar)
+BILL_AMT2: Amount of bill statement in August, 2005 (NT dollar)
+BILL_AMT3: Amount of bill statement in July, 2005 (NT dollar)
+BILL_AMT4: Amount of bill statement in June, 2005 (NT dollar)
+BILL_AMT5: Amount of bill statement in May, 2005 (NT dollar)
+BILL_AMT6: Amount of bill statement in April, 2005 (NT dollar)
+PAY_AMT1: Amount of previous payment in September, 2005 (NT dollar)
+PAY_AMT2: Amount of previous payment in August, 2005 (NT dollar)
+PAY_AMT3: Amount of previous payment in July, 2005 (NT dollar)
+PAY_AMT4: Amount of previous payment in June, 2005 (NT dollar)
+PAY_AMT5: Amount of previous payment in May, 2005 (NT dollar)
+PAY_AMT6: Amount of previous payment in April, 2005 (NT dollar)
+default.payment.next.month: Default payment (1=yes, 0=no)
+Inspiration
 
-Attribute 5: (numerical) Credit amount
+Some ideas for exploration:
 
-Attribute 6: (Qualitative / Categorical) Savings account/bonds A61: ... < 1000 USD A62: 1000 <= ... < 5000 USD A63: 5000 <= ... < 10000 USD A64: .. >= 10000 USD A65: unknown/ no savings account
+How does the probability of default payment vary by categories of different demographic variables?
+Which variables are the strongest predictors of default payment?
+Acknowledgements
 
-Attribute 7: (Qualitative / Categorical) Present employment since A71: unemployed A72: ... < 1 year A73: 1 <= ... < 4 years 
-A74: 4 <= ... < 7 years A75: .. >= 7 years
+Any publications based on this dataset should acknowledge the following:
 
-Attribute 8: (numerical) Installment rate in percentage of disposable income
+Lichman, M. (2013). UCI Machine Learning Repository [http://archive.ics.uci.edu/ml]. Irvine, CA: University of California, School of Information and Computer Science.
 
-Attribute 9: (Qualitative / Categorical) Personal status and sex A91: male : divorced/separated A92: female: divorced/separated/married A93: male : single A94: male : married/widowed A95: female: single
-
-Attribute 10: (Qualitative / Categorical) Other debtors / guarantors A101: none A102: co-applicant A103: guarantor
-
-Attribute 11: (numerical) Present residence since
-
-Attribute 12: (Qualitative / Categorical) Property A121: real estate A122: if not A121: building society savings agreement/ life insurance A123: if not A121/A122: car or other, not in attribute 6 A124: unknown / no property
-
-Attribute 13: (numerical) Age in years
-
-Attribute 14: (Qualitative / Categorical) Other installment plans A141: bank A142: stores A143: none
-
-Attribute 15: (Qualitative / Categorical) Housing A151: rent A152: own A153: for free
-
-Attribute 16: (numerical) Number of existing credits at this bank
-
-Attribute 17: (Qualitative / Categorical) Job A171: unemployed/ unskilled - non-resident A172: unskilled - resident A173: skilled employee / official A174: management/ self-employed/ highly qualified employee/ officer
-
-Attribute 18: (numerical) Number of people being liable to provide maintenance for
-
-Attribute 19: (Qualitative / Categorical) Telephone A191: none A192: yes, registered under the customer’s name
-
-Attribute 20: (Qualitative / Categorical) foreign worker A201: yes A202: no
-
-Default on Payment due
-1 (Defaulted) 0 (No Default)
+The original dataset can be found here at the UCI Machine Learning Repository.
