@@ -51,7 +51,11 @@ Finally, we will use the results of this analysis to make business decisions e.g
 
 
 ```{r setuplibraries, echo=FALSE, message=FALSE}
-suppressWarnings(source("../../AnalyticsLibraries/library.R"))
+suppressWarnings(source("AnalyticsLibraries/library.R"))
+source("helpersSet2.R")
+library(googleVis)
+load("data/UCI_Credit_Card.csv")
+
 # Package options
 suppressWarnings(ggthemr('fresh'))  # ggplot theme
 opts_knit$set(progress=FALSE, verbose=FALSE)
@@ -67,7 +71,7 @@ First we load the data to use (see the raw .Rmd file to change the data file as 
 
 ```{r setupdata1E, echo=TRUE, tidy=TRUE}
 # Please ENTER the name of the file with the data used. The file should be a .csv with one row per observation (e.g. person) and one column per attribute. Do not add .csv at the end, make sure the data are numeric.
-datafile_name = "../Sessions23/data/Boats.csv"
+datafile_name = "UCI_credit_card"
 
 # Please enter the minimum number below which you would like not to print - this makes the readability of the tables easier. Default values are either 10e6 (to print everything) or 0.5. Try both to see the difference.
 MIN_VALUE = 0.5
