@@ -82,10 +82,19 @@ max_data_report = 10
 ```
 
 ```{r}
-ProjectData <- read.csv(datafile_name)
-ProjectData <- data.matrix(ProjectData) 
-ProjectData_INITIAL <- ProjectData
+ProjectData <- read.csv("data/HR_comma_sep.csv")
+ProjectData <- data.frame(ProjectData) 
 
+for(level in unique(ProjectData$salary)){
+  ProjectData[paste("dummy", level, sep = "_")] <- ifelse(ProjectData$salary == level, 1, 0)
+}
+
+for(level in unique(ProjectData$sales)){
+  ProjectData[paste("dummy", level, sep = "_")] <- ifelse(ProjectData$sales == level, 1, 0)
+}
+write.csv(ProjectData,"data/HR_clean.csv")
+
+ProjectData_INITIAL <- ProjectData
 ```
 
 <hr>\clearpage

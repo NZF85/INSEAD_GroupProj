@@ -50,7 +50,7 @@ dformat <- function(df) {
 
 This tool follows the 6 steps for factor analysis outlined in the [Derived Attributes and Dimensionality Reduction](http://inseaddataanalytics.github.io/INSEADAnalytics/Report_s23.html) reading of the course. 
 
-First we load the data (`data/UCI_Credit_card.csv` by default):
+First we load the data (`data/HR_clean.csv` by default):
 
 ```{r}
 # Please ENTER the name of the file with the data used. The file should contain a matrix with one row per observation (e.g. person) and one column per attribute.
@@ -65,7 +65,7 @@ fileInput("dataFile", "",
 ProjectDataX <- eventReactive(input$dataFile, ignoreNULL=FALSE, {
   datapath <- input$dataFile$datapath
   if (is.null(datapath))
-    datapath <- "data/UCI_Credit_Card.csv"
+    datapath <- "data/HR_clean.csv"
   df <- try(read.csv(datapath, stringsAsFactors=FALSE), silent=TRUE)
   df.valid <- class(df) == "data.frame" && any(sapply(df, is.numeric))
   if (!df.valid) {
