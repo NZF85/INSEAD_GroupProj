@@ -69,25 +69,33 @@ We clean the data to create dummy variables for the Sales and Departments.
 ```{r}
 ProjectData <- read.csv(datafile_name)
 ProjectData <- data.frame(ProjectData) 
+## plot of the data by departments
+ggplot(data=ProjectData, aes(x=satisfaction_level))+geom_bar(aes(fill=factor(left)))+ggtitle("Bar Chart by departments")+labs(x="Satisfaction scores", y="Count of records") +facet_wrap(~sales,  scales = "free")  
 
-#for(level in unique(ProjectData$salary)){
-#ProjectData[paste("dummy", level, sep = "_")] <- #ifelse(ProjectData$salary == level, 1, 0)
-#}
+## only employees who left
+ProjectData<-ProjectData[ProjectData$left==1,]
+```
 
+```{r}
 
+##Replace all the salary from low medium high to 1 2 3
 ProjectData$salary.f <- as.numeric(factor(ProjectData$salary,levels=c("low" ,"medium", "high")))
 
-
+##Replace all the departments with dummy categorical variables
 for(level in unique(ProjectData$sales)){
   ProjectData[paste("dummy", level, sep = "_")] <- ifelse(ProjectData$sales == level, 1, 0)
 }
-
+## remove the sales and salary columns
 ProjectData$sales<-NULL
 ProjectData$salary<-NULL
 
+## write a CSV file of the new data
 write.csv(ProjectData,"data/HR_clean.csv")
 
 ProjectData_INITIAL <- ProjectData 
+## Scale the data
+ProjectData_scaled <- apply(ProjectData, 2, function(r) if (sd(r)!=0) (r-mean(r))/sd(r) else 0*r)
+
 ```
 
 <hr>\clearpage
@@ -120,7 +128,7 @@ rotation_used = "varimax"
 
 ```{r}
 factor_attributes_used <- intersect(factor_attributes_used, 1:ncol(ProjectData))
-ProjectDataFactor <- ProjectData[,factor_attributes_used]
+ProjectDataFactor <- ProjectData_scaled[,factor_attributes_used]
 ProjectDataFactor <- ProjectData <- data.matrix(ProjectDataFactor)
 ```
 
@@ -143,9 +151,38 @@ iprint.df(round(my_summary(ProjectDataFactor), 2))
 
 This is the correlation matrix of the customer responses to the `r ncol(ProjectDataFactor)` attitude questions - which are the only questions that we will use for the segmentation (see the case):
 
-```{r}
-thecor = round(cor(ProjectDataFactor),2)
-iprint.df(round(thecor,2), scale=TRUE)
+
+
+```{r fig.align='center', fig=TRUE, bunch_o_figs_pointsize, fig.height=15, fig.width=15, dev.args=list(pointsize=18)}
+
+##p-test function for the correlation matrix
+cor.mtest <- function(mat, ...) {
+    mat <- as.matrix(mat)
+    n <- ncol(mat)
+    p.mat<- matrix(NA, n, n)
+    diag(p.mat) <- 0
+    for (i in 1:(n - 1)) {
+        for (j in (i + 1):n) {
+            tmp <- cor.test(mat[, i], mat[, j], ...)
+            p.mat[i, j] <- p.mat[j, i] <- tmp$p.value
+        }
+    }
+  colnames(p.mat) <- rownames(p.mat) <- colnames(mat)
+  p.mat
+}
+p.mat <- cor.mtest(ProjectDataFactor)
+## set up the colour template for the corrleation table
+col <- colorRampPalette(c("#BB4444", "#EE9988", "#FFFFFF", "#77AADD", "#4477AA"))
+corrplot(round(cor(ProjectDataFactor),2)
+         , method="color", col=col(200),  
+         type="upper", order="hclust", 
+         addCoef.col = "black", # Add coefficient of correlation
+         tl.col="black", tl.srt=45, #Text label color and rotation
+         # Combine with significance
+         p.mat = p.mat, sig.level = 0.01, insig = "blank", 
+         # hide correlation coefficient on the principal diagonal
+         diag=FALSE 
+         )
 ```
 
 **Questions**
@@ -549,4 +586,3 @@ We should also consider the robustness of our analysis as we change the clusteri
 *
 
 <hr>\clearpage
-
