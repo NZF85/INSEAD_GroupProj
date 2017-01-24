@@ -302,16 +302,13 @@ iprint.df(Rotated_Factors_thres, scale=TRUE)
 
 **Answers**
 
-*
-*
-*
-*
-*
-*
-*
-*
-*
-*
+1. Component 1 describes an employee's worklife (average hours worked, number of projects, etc.), highlighting an important link between these data points. The other components describe other functions at the company. One item to note is that there is a correlation between the management group and recently promoted employees. 
+
+2. We have chosen to use 10 factors. 
+
+3. 
+
+4. 
 
 ## Step 6:  Save factor scores 
 
@@ -360,7 +357,7 @@ A key family of methods used for segmentation is what is called **clustering met
 ```{r setupcluster, echo=TRUE, tidy=TRUE}
 # Please ENTER then original raw attributes to use for the segmentation (the "segmentation attributes")
 # Please use numbers, not column names, e.g. c(1:5, 7, 8) uses columns 1,2,3,4,5,7,8
-segmentation_attributes_used = c(2,4,17,18) #c(10,19,5,12,3) 
+segmentation_attributes_used = c(2,4,11,12,14,15,16,17,18,19)  
 
 # Please ENTER then original raw attributes to use for the profiling of the segments (the "profiling attributes")
 # Please use numbers, not column names, e.g. c(1:5, 7, 8) uses columns 1,2,3,4,5,7,8
