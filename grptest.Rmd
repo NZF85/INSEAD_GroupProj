@@ -1,6 +1,6 @@
 ---
-title: "HR data to predict employee turnover"
-author: "Kate and gang"
+title: "Predicting employee turnover"
+author: "Kate, Meena, Sagar, Swapnil, Zhenfu"
 output:
   html_document:
     css: AnalyticsStyles/default.css
@@ -19,23 +19,23 @@ always_allow_html: yes
 
 <hr>\clearpage
 
-# The Business Questions
+# The Business Question
 
-To analyse characteristics of employees to help managers predict the possibility of a particular employee leaving the company
+What are the characteristics of employees that can help managers predict the possibility of a particular employee leaving the company?
 
-The data is based on data we obtained from [Kaggle ](https://www.kaggle.com/ludobenistant/hr-analytics).
+The data is obtained from [Kaggle](https://www.kaggle.com/ludobenistant/hr-analytics).
 
 <hr>\clearpage
 
 # The Process
 
-1. *Part 1*: We clean the data to change categorical variables to dummy variables
+1. *Part 1*: We cleaned the data to change categorical variables to dummy variables.
 
-2. *Part 2*: 
+2. *Part 2*: We did a factor analysis to identify factors that signal the possibility of an employee leaving.
 
-3. *Part 3*: 
+3. *Part 3*: We did a cluster analysis to define the profile of employees who might leave the company.
 
-Finally, we will use the results of this analysis to make business decisions on predicting the profile of employees that is at highest risk of leaving the company.
+Finally, we will use the results of this analysis to make business decisions to reduce the turnover of employees among those who are at the highest risk of leaving the company.
 
 
 ```{r setuplibraries, echo=FALSE, message=FALSE}
@@ -51,9 +51,9 @@ options(knitr.kable.NA = '')
 
 # The Data
 
-First we load the data to use (see the raw .Rmd file to change the data file as needed):
+First we loaded the data to use: `data/HR_comma_sep.csv`.
 
-```{r setupdata1E, echo=TRUE, tidy=TRUE}
+```{r setupdata1E, echo=FALSE, tidy=TRUE}
 # Please ENTER the name of the file with the data used. The file should be a .csv with one row per observation (e.g. person) and one column per attribute. Do not add .csv at the end, make sure the data are numeric.
 datafile_name = "data/HR_comma_sep.csv"
 
@@ -65,7 +65,7 @@ MIN_VALUE = 0.5
 max_data_report = 10
 ```
 
-We clean the data to create dummy variables for the Sales and Departments.
+Then, we cleaned the data to create dummy variables for the Departments.
 ```{r}
 ProjectData <- read.csv(datafile_name)
 ProjectData <- data.frame(ProjectData) 
