@@ -150,8 +150,8 @@ Next, we depict the descriptive statistics of the 16 parameters with 0 being the
 
 
 ```{r}
-datatable(round(my_summary(ProjectDataFactor), 2))
-#iprint.df(round(my_summary(ProjectDataFactor), 2))
+#datatable(round(my_summary(ProjectDataFactor), 2))
+iprint.df(round(my_summary(ProjectDataFactor), 2))
 ```
 
 ## Step 3: Check Correlations
@@ -219,8 +219,8 @@ colnames(Variance_Explained_Table) <- c("Eigenvalue", "Pct of explained variance
 
 
 ```{r}
-datatable(round(Variance_Explained_Table, 2))
-#iprint.df(round(Variance_Explained_Table, 2))
+#datatable(round(Variance_Explained_Table, 2))
+iprint.df(round(Variance_Explained_Table, 2))
 ```
 
 
@@ -258,8 +258,8 @@ colnames(Rotated_Factors)<-paste("Comp.",1:ncol(Rotated_Factors),sep="")
 sorted_rows <- sort(Rotated_Factors[,1], decreasing = TRUE, index.return = TRUE)$ix
 Rotated_Factors <- Rotated_Factors[sorted_rows,]
 
-#iprint.df(Rotated_Factors, scale=TRUE)
-datatable(Rotated_Factors)
+iprint.df(Rotated_Factors, scale=TRUE)
+#datatable(Rotated_Factors)
 ```
 
 To better visualize and interpret the factors we suppress loadings with small values, e.g. with absolute values smaller than 0.5. In this case our factors look as follows after suppressing the small numbers:
