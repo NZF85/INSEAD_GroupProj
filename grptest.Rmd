@@ -495,15 +495,15 @@ Hence, through this robust segmentation exercise, the employees who left the org
 
 Our analysis revealed three key segments in the company. These include Segment 1 – Employees who spent the least time in the organization, Segment 2 – Employees who undertook the maximum projects in the year and spent the highest average monthly hours in the company, and Segment 3 – Employees who had the least number of promotions in the group in the last 5 years. These segments represent the three profiles that describe employees who have left the firm.
  
-Based on our analysis, we cannot conclude with absolute certainty that employees who match this profile will leave the firm. Instead, we would recommend the following actions to gain further insight into this question:
+Based on our analysis, we cannot conclude with absolute certainty that employees who match one or more of these three profiles will leave the firm. Instead, we would recommend the following actions to gain further insight into attrition:
  
-1. HR could consider monitoring current employees who match this profile. This may help them recognize early warning signals related to attrition. This would allow them to play a more proactive role in retaining employees.
+1. HR could consider monitoring current employees who match one or more of these segment profiles. This would help managers look for and recognize early signs related to an employee’s desire to leave the firm. Being prepared to persuade the employee to stay could empower managers to retain their staff. Therefore, the results of this study may allow HR to play a more proactive supporting role in retaining employees.
 
 2. The firm may also want to examine the turnover patterns across departments. The current data analysis does not provide detail needed below the departments, but it is interesting that HR and sales appear to have higher attrition as compared to other departments at the firm. Perhaps staff interviews or gathering more department specific data to analyze would be helpful.
 
-3. Further study is needed to complement these findings to understand the drivers behind why employees choose to leave the firm. For example, perhaps they should embark on further study to understand the causes behind the attrition. For example, reinstituting new policies around work/life balance might reduce turnover HR and support, if interviews with staff reveal that burnout is a common cause for an employee to leave the firm.
-
-
+3. Further study is needed to complement the findings in this study and understand the drivers behind why employees choose to leave the firm. For example, perhaps further analysis complemented with interviews will reveal that instituting new policies around work/life balance would reduce turnover, if burnout is a common cause for an employee to leave the firm.
+ 
 Should the company want to iterate upon this initial study, increasing the number of factors in subsequent analysis would improve accuracy and the level of detail available to describe patterns related to the firm’s attrition.
+ 
  
 <hr>\clearpage

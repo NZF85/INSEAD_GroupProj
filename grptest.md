@@ -62,28 +62,6 @@ From the data, we determine the key characteristics that identify the employees 
 
 
 
-```r
-# Please ENTER then original raw attributes to use.  Please use numbers, not
-# column names, e.g. c(1:5, 7, 8) uses columns 1,2,3,4,5,7,8
-factor_attributes_used = c(1:6, 8, 11:20)
-
-# Please ENTER the selection criterions for the factors to use.  Choices:
-# 'eigenvalue', 'variance', 'manual'
-factor_selectionciterion = "eigenvalue"
-
-# Please ENTER the desired minumum variance explained (Only used in case
-# 'variance' is the factor selection criterion used).
-minimum_variance_explained = 65  # between 1 and 100
-
-# Please ENTER the number of factors to use (Only used in case 'manual' is
-# the factor selection criterion used).
-manual_numb_factors_used = 5
-
-# Please ENTER the rotation eventually used (e.g. 'none', 'varimax',
-# 'quatimax', 'promax', 'oblimin', 'simplimax', and 'cluster' - see
-# help(principal)). Default is 'varimax'
-rotation_used = "varimax"
-```
 
 
 
@@ -917,38 +895,6 @@ The segementation variables chosen are based on the highest weights observed in 
 3) departments of accounting, hr, support, management, IT, product management, marketing and R&D
 
 
-```r
-# Please ENTER then original raw attributes to use for the segmentation (the
-# 'segmentation attributes') Please use numbers, not column names, e.g.
-# c(1:5, 7, 8) uses columns 1,2,3,4,5,7,8
-segmentation_attributes_used = c(2, 4, 11, 12, 14, 15, 16, 17, 18, 19)
-
-# Please ENTER then original raw attributes to use for the profiling of the
-# segments (the 'profiling attributes') Please use numbers, not column
-# names, e.g. c(1:5, 7, 8) uses columns 1,2,3,4,5,7,8
-profile_attributes_used = c(2:19)
-
-# Please ENTER the number of clusters to eventually use for this report
-numb_clusters_used = 3  # for boats possibly use 5, for Mall_Visits use 3
-
-# Please enter the method to use for the segmentation:
-profile_with = "hclust"  #  'hclust' or 'kmeans'
-
-# Please ENTER the distance metric eventually used for the clustering in
-# case of hierarchical clustering (e.g. 'euclidean', 'maximum', 'manhattan',
-# 'canberra', 'binary' or 'minkowski' - see help(dist)).  DEFAULT is
-# 'euclidean'
-distance_used = "euclidean"
-
-# Please ENTER the hierarchical clustering method to use (options are:
-# 'ward', 'single', 'complete', 'average', 'mcquitty', 'median' or
-# 'centroid').  DEFAULT is 'ward'
-hclust_method = "ward.D"
-
-# Please ENTER the kmeans clustering method to use (options are:
-# 'Hartigan-Wong', 'Lloyd', 'Forgy', 'MacQueen').  DEFAULT is 'Lloyd'
-kmeans_method = "Lloyd"
-```
 
 
 
@@ -1126,18 +1072,21 @@ Below shows histogram of all pairwise distances for the euclidean distance:
 
 ## Step 4: Method and Number of Segments
 
-We need to select the clustering method to use, as well as the number of cluster. It may be useful to see the dendrogram from Hierarchical Clustering, to have a quick idea of how the data may be segmented and how many segments there may be. Here is the dendrogram for our data:
+
+Below we have the dendogram of our Hierachical Clustering of our data.
 
 
 ```
 ## Error in loadNamespace(name): there is no package called 'webshot'
 ```
 
-We can also plot the "distances" traveled before we need to merge any of the lower and smaller in size clusters into larger ones - the heights of the tree branches that link the clusters as we traverse the tree from its leaves to its root. If we have n observations, this plot has n-1 numbers, we see the first 20 here. 
+Displayed also is a plot of the distances of travelled for the points. 
 
 ```
 ## Error in loadNamespace(name): there is no package called 'webshot'
 ```
+
+We chose 3 segements to segregate our dataset.
 
 Here is the segment membership of the first 10 respondents if we use hierarchical clustering:
 
@@ -1245,7 +1194,7 @@ while this is the segment membership if we use k-means:
 </tbody>
 </table></div><!--/html_preserve-->
 
-## Step 7: Profile and interpret the segments 
+## Step 5: Profile and interpret the segments 
 
 The table below uses the 10 variables to segment employees by showing the average of all the input variables in each segment of employee compared to the ratio of the average of all the employees using the ratio of the two.
 
@@ -1525,6 +1474,19 @@ On comparing the average of each of the profiling variable of each of the segmen
 
 Hence, through this robust segmentation exercise, the employees who left the organization can broadly be divided into 3 segments, Segment 1 – Employees who spent the least time in the organization, Segment 2 – Employees who undertook the maximum projects in the year and spent the highest average monthly hours in the company, and Segment 3 – Employees who had the least number of promotions in the group in the last 5 years	 
 
+# Conclusion
+
+Our analysis revealed three key segments in the company. These include Segment 1 – Employees who spent the least time in the organization, Segment 2 – Employees who undertook the maximum projects in the year and spent the highest average monthly hours in the company, and Segment 3 – Employees who had the least number of promotions in the group in the last 5 years. These segments represent the three profiles that describe employees who have left the firm.
+ 
+Based on our analysis, we cannot conclude with absolute certainty that employees who match this profile will leave the firm. Instead, we would recommend the following actions to gain further insight into this question:
+ 
+1. HR could consider monitoring current employees who match this profile. This may help them recognize early warning signals related to attrition. This would allow them to play a more proactive role in retaining employees.
+
+2. The firm may also want to examine the turnover patterns across departments. The current data analysis does not provide detail needed below the departments, but it is interesting that HR and sales appear to have higher attrition as compared to other departments at the firm. Perhaps staff interviews or gathering more department specific data to analyze would be helpful.
+
+3. Further study is needed to complement these findings to understand the drivers behind why employees choose to leave the firm. For example, perhaps they should embark on further study to understand the causes behind the attrition. For example, reinstituting new policies around work/life balance might reduce turnover HR and support, if interviews with staff reveal that burnout is a common cause for an employee to leave the firm.
 
 
+Should the company want to iterate upon this initial study, increasing the number of factors in subsequent analysis would improve accuracy and the level of detail available to describe patterns related to the firm’s attrition.
+ 
 <hr>\clearpage
