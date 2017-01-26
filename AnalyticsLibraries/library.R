@@ -27,7 +27,7 @@ libraries_used=c("devtools","knitr","graphics","grDevices","xtable","pryr",
                  "gridExtra", "reshape2", "DT", "ramnathv/slidifyLibraries",
                  "ramnathv/slidify", "cttobin/ggthemr", "dplyr", "mrjoh3/c3",
                  "rpart.plot","vkapartzianis/formattable", "ggdendro","ROCR",
-                 "networkD3","tidyr","corrplot","Hmisc")
+                 "networkD3","tidyr","corrplot","Hmisc","likert","DT")
 get_libraries(libraries_used)
 
 #############
