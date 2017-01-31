@@ -144,7 +144,7 @@ rownames(ProjectDataFactor) <- paste0("Obs.", sprintf("%02i", 1:nrow(ProjectData
 datatable(t(head(round(ProjectDataFactor, 2), max_data_report)), class = 'cell-border stripe')
 ```
 
-After running the eigenvalue method, we identified 16 parameters that define an employee in the data. These are satisfaction level, last evaluation completed, number of project, average monthly hours worked, time spend in the firm, work related accidents, number of promotions in last 5 years, and employee’s department (Accounting, HR, Technical, Support, Management, IT, Product Management, Marketing, and R&D).
+We identified 16 parameters that define an employee in the data. These are satisfaction level, last evaluation completed, number of project, average monthly hours worked, time spend in the firm, work related accidents, number of promotions in last 5 years, and employee’s department (Accounting, HR, Technical, Support, Management, IT, Product Management, Marketing, and R&D).
 
 Next, we depict the descriptive statistics of the 16 parameters with 0 being the mean.  
 
